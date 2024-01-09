@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo_producto_compra');
+            $table->string('codigo_compra');
             $table->string('descripcion_compra');
-            $table->string('cantidad_compra')->default(0);
-            $table->float('precio_pesos_compra',)->default(0);
-            $table->float('precio_dolares_compra',)->default(0);
-            $table->float('precio_venta')->default(0);
+            $table->float('envio_compra')->default(0);
+            $table->float('recargo_compra')->default(0);
+            $table->float('total_compra')->default(0);
             $table->foreignId('proveedor_id');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombres_clientes');
             $table->string('apellidos_clientes');
-            $table->string('cedula_clientes');
+            $table->string('cedula_clientes')->unique();
             $table->string('telefono_clientes');
             $table->string('ciudad_clientes');
             $table->string('direccion_clientes');
