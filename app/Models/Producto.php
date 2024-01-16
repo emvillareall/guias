@@ -31,8 +31,8 @@ class Producto extends Model
 		'cantidad_compra_producto' => 'required',
 		'stock_venta_producto' => 'required',
 		'precio_pesos_producto' => 'required',
-		'precio_dolares_producto' => 'required',
-		'precio_venta_producto' => 'required',
+		'precio_dolares_producto',
+		'precio_venta_producto',
 		'compras_id' => 'required',
     ];
 
@@ -43,7 +43,7 @@ class Producto extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo_producto','descripcion_producto','cantidad_compra_producto','stock_venta_producto','precio_pesos_producto','precio_dolares_producto','precio_venta_producto','compras_id'];
+    protected $fillable = ['codigo_producto','descripcion_producto','cantidad_compra_producto','stock_venta_producto','precio_pesos_producto','compras_id'];
 
 
 

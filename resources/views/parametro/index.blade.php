@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Compra
+    Parametro
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Compra') }}
+                                {{ __('Parametro') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('compras.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('parametros.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,35 +36,24 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Codigo Compra</th>
-										<th>Descripcion Compra</th>
-										<th>Envio Compra</th>
-										<th>Recargo Compra</th>
-										<th>Total Compra Pesos</th>
-                                        <th>Total Compra Dolares</th>
-										<th>Proveedor Id</th>
+										<th>Nombre Parametro</th>
+										<th>Valor Parametro</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($compras as $compra)
+                                    @foreach ($parametros as $parametro)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $compra->codigo_compra }}</td>
-											<td>{{ $compra->descripcion_compra }}</td>
-											<td>{{ $compra->envio_compra }}</td>
-											<td>{{ $compra->recargo_compra }}</td>
-											<td>{{ $compra->total_pesos_compra }}</td>
-                                            <td>{{ $compra->total_dolares_compra }}</td>
-											<td>{{ $compra->proveedor_id }}</td>
+											<td>{{ $parametro->nombre_parametro }}</td>
+											<td>{{ $parametro->valor_parametro }}</td>
 
                                             <td>
-                                                <form action="{{ route('compras.destroy',$compra->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('compras.show',$compra->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('compras.edit',$compra->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    <a class="btn btn-sm btn-warning" href="{{ route('productos.create',['id' => $compra->id]) }}"></i> {{ __('agregar producto') }}</a>
+                                                <form action="{{ route('parametros.destroy',$parametro->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('parametros.show',$parametro->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('parametros.edit',$parametro->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -77,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $compras->links() !!}
+                {!! $parametros->links() !!}
             </div>
         </div>
     </div>

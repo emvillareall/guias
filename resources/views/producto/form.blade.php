@@ -22,22 +22,22 @@
             {!! $errors->first('stock_venta_producto', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('precio_pesos_producto') }}
+            {{ Form::label('precio_unitario_pesos_producto') }}
             {{ Form::text('precio_pesos_producto', $producto->precio_pesos_producto, ['class' => 'form-control' . ($errors->has('precio_pesos_producto') ? ' is-invalid' : ''), 'placeholder' => 'Precio Pesos Producto']) }}
             {!! $errors->first('precio_pesos_producto', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('precio_dolares_producto') }}
+            {{ Form::label('precio_unitario_dolares_producto') }}
             {{ Form::text('precio_dolares_producto', $producto->precio_dolares_producto, ['class' => 'form-control' . ($errors->has('precio_dolares_producto') ? ' is-invalid' : ''), 'placeholder' => 'Precio Dolares Producto']) }}
             {!! $errors->first('precio_dolares_producto', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('precio_venta_producto') }}
+            {{ Form::label('precio_unitario_venta_producto') }}
             {{ Form::text('precio_venta_producto', $producto->precio_venta_producto, ['class' => 'form-control' . ($errors->has('precio_venta_producto') ? ' is-invalid' : ''), 'placeholder' => 'Precio Venta Producto']) }}
             {!! $errors->first('precio_venta_producto', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::hidden('compras_id', $id_compra) }}
+            {{ Form::hidden('compras_id', $compras_id) }}
         </div>
 
     </div>

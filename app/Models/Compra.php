@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property $codigo_compra
  * @property $descripcion_compra
  * @property $envio_compra
- * @property $recargo_compra
- * @property $total_compra
+ * @property $total_pesos_compra
+ * @property $total_dolares_compra
  * @property $proveedor_id
  * @property $created_at
  * @property $updated_at
@@ -27,8 +27,8 @@ class Compra extends Model
 		'codigo_compra' => 'required',
 		'descripcion_compra' => 'required',
 		'envio_compra' => 'required',
-		'recargo_compra' => 'required',
-		'total_compra' => 'required',
+		'total_pesos_compra',
+        'total_dolares_compra',
 		'proveedor_id' => 'required',
     ];
 
@@ -39,7 +39,7 @@ class Compra extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo_compra','descripcion_compra','envio_compra','recargo_compra','total_compra','proveedor_id'];
+    protected $fillable = ['codigo_compra','descripcion_compra','envio_compra','proveedor_id'];
 
 
 

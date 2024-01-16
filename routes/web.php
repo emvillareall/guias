@@ -7,7 +7,9 @@ use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\ParametroController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\DetallePedidoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +37,8 @@ Route::resource('pedidos',PedidoController::class);
 Route::resource('proveedores',ProveedoreController::class);
 Route::resource('productos',ProductoController::class);
 Route::resource('compras',CompraController::class);
+Route::resource('parametros',ParametroController::class);
+Route::resource('detalle-pedidos',DetallePedidoController::class);
 
 
 Route::get('/pdf_pedidos/{id}', [App\Http\Controllers\PDFController::class, 'getPDF_pedidos'])->name('getPDF_pedidos');

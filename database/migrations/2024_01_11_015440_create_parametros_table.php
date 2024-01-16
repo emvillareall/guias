@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('compras', function (Blueprint $table) {
+        Schema::create('parametros', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo_compra');
-            $table->string('descripcion_compra');
-            $table->float('envio_compra')->default(0);
-            $table->float('total_pesos_compra')->default(0);
-            $table->foreignId('proveedor_id');
+            $table->string('nombre_parametro');
+            $table->float('valor_parametro', 8 , 5)->default(0);
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('compras');
+        Schema::dropIfExists('parametros');
     }
 };

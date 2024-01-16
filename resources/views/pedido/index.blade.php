@@ -40,6 +40,9 @@
                                         <th>Descripcion</th>
                                         <th>Cliente</th>
                                         <th>Tienda</th>
+                                        <th>Subtotal</th>
+                                        <th>Descuento</th>
+                                        <th>Total</th>
                                         <th>URL</th>
                                         <th>Estado</th>
 
@@ -58,37 +61,45 @@
                                             <td>{{ $pedido->descripcion }}</td>
                                             <td>{{ $pedido->nombres_clientes }} {{ $pedido->apellidos_clientes }}</td>
                                             <td>{{ $pedido->nombre_tienda }}</td>
+                                            <td>{{ $pedido->subtotal_pedido }}</td>
+                                            <td>{{ $pedido->descuentos_pedido }}</td>
+                                            <td>{{ $pedido->total_pedido }}</td>
                                             @isset($url_signed)
                                             @if($pedido->id==$id) 
+                                            
                                             <td>{{$url_signed}}
                                                 <a class="btn btn-sm btn-primary" href="{{ 
                                                         route('estado_pedido',$pedido->id) }}" target="_blank"><i class="fa fa-fw fa fa-paper-plane"></i></a>
-
+                                            <td><label class="" > {{$pedido->estado}} </label></td>
                                             </td>
                                             @else
+                                            <td></td>
                                             <td><label class="" > {{$pedido->estado}} </label></td>
                                             @endif
                                             @else
+                                            <td>                                                <form  method="POST" action="{{ route('event.getLinkSubscribe', $pedido->id)}}"> 
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-primary btn-sm">{{ __('URL') }}</button>
+                                                </form></td>
                                             <td><label class="" > {{$pedido->estado}} </label></td>
                                             @endisset
 
                                             <td>
 
-                                                <form  method="POST" action="{{ route('event.getLinkSubscribe', $pedido->id)}}"> 
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-primary btn-sm">{{ __('URL') }}</button>
-                                                </form>
-
 
                                                 <form action="{{ route('pedidos.destroy',$pedido->id) }}" method="POST">
 
-                                                    <a class="btn btn-sm btn-success" href="{{ route('pedidos.edit',$pedido->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>   
+                                                    <a class="btn btn-sm btn-success" href="{{ route('pedidos.edit',$pedido->id) }}"><i class="fa fa-fw fa-edit"></i> </a>   
                                                      <a class="btn btn-sm btn-warning" href="{{ 
                                                         route('getPDF_pedidos',$pedido->id) }}" target="_blank"><i class="fa fa-fw fa-print  "></i></a>
+                                                    <a href="{{ route('detalle-pedidos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                                    {{ __('asignar producto') }}
+                                                    </a>
                                                         
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>
+                                                    </button>
                                                 </form>
                                             </td>
                                         </tr>

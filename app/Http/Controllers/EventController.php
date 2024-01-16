@@ -18,7 +18,7 @@ class EventController extends Controller
         $pedidos = DB::table('pedidos')
             ->join('tiendas', 'tiendas.id', '=', 'pedidos.tienda_id')
             ->join('clientes', 'clientes.id', '=', 'pedidos.clientes_id')
-            ->select('pedidos.id' ,'pedidos.estado','pedidos.clientes_id','pedidos.descripcion','clientes.nombres_clientes','clientes.apellidos_clientes', 'tiendas.nombre_tienda')
+            ->select('pedidos.*','clientes.nombres_clientes','clientes.apellidos_clientes', 'tiendas.nombre_tienda')
             ->where('pedidos.created_at','like',"%{$date->toDateString()}%")
             ->paginate(30);
 

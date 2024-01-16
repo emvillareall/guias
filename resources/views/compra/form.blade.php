@@ -17,18 +17,18 @@
             {!! $errors->first('envio_compra', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('recargo_compra') }}
-            {{ Form::text('recargo_compra', $compra->recargo_compra, ['class' => 'form-control' . ($errors->has('recargo_compra') ? ' is-invalid' : ''), 'placeholder' => 'Recargo Compra']) }}
-            {!! $errors->first('recargo_compra', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('total_pesos_compra') }}
+            {{ Form::text('total_pesos_compra', $compra->total_pesos_compra, ['class' => 'form-control' . ($errors->has('total_pesos_compra') ? ' is-invalid' : ''), 'placeholder' => 'Total Compra']) }}
+            {!! $errors->first('total_pesos_compra', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('total_compra') }}
-            {{ Form::text('total_compra', $compra->total_compra, ['class' => 'form-control' . ($errors->has('total_compra') ? ' is-invalid' : ''), 'placeholder' => 'Total Compra']) }}
-            {!! $errors->first('total_compra', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('total_dolares_compra') }}
+            {{ Form::text('total_dolares_compra', $compra->total_dolares_compra, ['class' => 'form-control' . ($errors->has('total_dolares_compra') ? ' is-invalid' : ''), 'placeholder' => 'Total Compra']) }}
+            {!! $errors->first('total_dolares_compra', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('proveedor_id') }}
-            {{ Form::text('proveedor_id', $compra->proveedor_id, ['class' => 'form-control' . ($errors->has('proveedor_id') ? ' is-invalid' : ''), 'placeholder' => 'Proveedor Id']) }}
+            {{ Form::select('proveedor_id', $proveedor_id, ['class' => 'form-control' . ($errors->has('proveedor_id') ? ' is-invalid' : ''), 'placeholder' => 'Proveedor Id']) }}
             {!! $errors->first('proveedor_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

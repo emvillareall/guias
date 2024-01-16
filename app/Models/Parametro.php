@@ -5,27 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Pedido
+ * Class Parametro
  *
  * @property $id
- * @property $clientes_id
- * @property $tienda_id
+ * @property $nombre_parametro
+ * @property $valor_parametro
  * @property $created_at
  * @property $updated_at
- * @property $descripcion
- * @property $estado
+ *
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Pedido extends Model
+class Parametro extends Model
 {
     
     static $rules = [
-		'clientes_id',
-		'tienda_id' ,
-        'descripcion',
-        'estado',
-        'subtotal_pedido' 
+		'nombre_parametro' => 'required',
+		'valor_parametro' => 'required',
     ];
 
     protected $perPage = 20;
@@ -35,7 +31,7 @@ class Pedido extends Model
      *
      * @var array
      */
-    protected $fillable = ['clientes_id','tienda_id','descripcion','estado','subtotal_pedido'];
+    protected $fillable = ['nombre_parametro','valor_parametro'];
 
 
 

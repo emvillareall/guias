@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compra;
+use App\Models\Proveedore;
 use Illuminate\Http\Request;
+use DB;
 
 /**
  * Class CompraController
@@ -32,7 +34,10 @@ class CompraController extends Controller
     public function create()
     {
         $compra = new Compra();
-        return view('compra.create', compact('compra'));
+        $proveedor_id = Proveedore::select(DB::raw("tienda_proveedor as tienda_proveedor"),DB::raw("id as id"))
+               ->pluck('tienda_proveedor', 'id');
+
+        return view('compra.create', compact('compra','proveedor_id'));
     }
 
     /**

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('pedidos', function (Blueprint $table) {
-            $table->string('cantidad');
-            $table->string('precio');
-            $table->string('total');
+        Schema::table('compras', function (Blueprint $table) {
+            $table->float('total_dolares_compra')->default(0);
+            $table->float('importacion_compra')->default(0);
+            $table->float('total_final_compra')->default(0);
         });
     }
 
@@ -23,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('pedidos', function (Blueprint $table) {
+        Schema::table('compras', function (Blueprint $table) {
             //
         });
     }
