@@ -15,8 +15,14 @@ class ParametrosSeeder extends Seeder
     public function run(): void
     {
         DB::table('parametros')->insert([
-            'recargo_paypal' => 0.0525,
-            'cambio_moneda' => 0.0624
+
+            'nombre_parametro' => 'recargo_paypal',
+            'valor_parametro' => 0.0525
+        ]);
+        
+        DB::table('parametros')->insert([
+            'nombre_parametro' => 'cambio_moneda',
+            'valor_parametro' => 0.0624
         ]);
     }
 }

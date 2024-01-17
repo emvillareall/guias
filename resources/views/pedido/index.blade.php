@@ -29,6 +29,11 @@
                         <div class="alert alert-success">
                             <p>{{ $message }}</p>
                         </div>
+                    @elseif($message = Session::get('danger'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+
                     @endif
 
                     <div class="card-body">
@@ -86,13 +91,12 @@
 
                                             <td>
 
-
                                                 <form action="{{ route('pedidos.destroy',$pedido->id) }}" method="POST">
 
                                                     <a class="btn btn-sm btn-success" href="{{ route('pedidos.edit',$pedido->id) }}"><i class="fa fa-fw fa-edit"></i> </a>   
                                                      <a class="btn btn-sm btn-warning" href="{{ 
                                                         route('getPDF_pedidos',$pedido->id) }}" target="_blank"><i class="fa fa-fw fa-print  "></i></a>
-                                                    <a href="{{ route('detalle-pedidos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                                    <a href="{{ route('detalle-pedidos.create',['id' => $pedido->id]) }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                                     {{ __('asignar producto') }}
                                                     </a>
                                                         

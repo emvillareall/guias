@@ -6,6 +6,12 @@
             {{ Form::text('descripcion', $pedido->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion del producto']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+
+        <div class="form-group">
+            {{ Form::label('descuentos_pedido') }}
+            {{ Form::text('descuentos_pedido', $pedido->descuentos_pedido, ['class' => 'form-control' . ($errors->has('descuentos_pedido') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion del producto']) }}
+            {!! $errors->first('descuentos_pedido', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
         
         <div class="form-group">
             {{ Form::label('tienda_id') }}

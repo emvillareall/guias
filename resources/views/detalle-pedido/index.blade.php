@@ -4,7 +4,9 @@
     Detalle Pedido
 @endsection
 
+
 @section('content')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -25,6 +27,10 @@
                     </div>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @else
+                        <div class="alert alert-danger">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -65,6 +71,8 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
+
                         </div>
                     </div>
                 </div>
@@ -72,4 +80,10 @@
             </div>
         </div>
     </div>
+
+
 @endsection
+
+
+
+

@@ -102,9 +102,11 @@ class PedidoController extends Controller
      */
     public function update(Request $request, Pedido $pedido)
     {
+       //dd($pedido->subtotal_pedido-$pedido->descuentos_pedido);
         //request()->validate(Pedido::$rules);
         $pedido->update($request->all());
-       // dd($request->all());
+        $pedido->total_pedido = $pedido->subtotal_pedido-$pedido->descuentos_pedido;
+        $pedido->save();
         return redirect()->route('pedidos.index')
             ->with('success', 'Pedido updated successfully');
     }

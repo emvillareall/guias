@@ -25,7 +25,8 @@ class Pedido extends Model
 		'tienda_id' ,
         'descripcion',
         'estado',
-        'subtotal_pedido' 
+        'subtotal_pedido', 
+        'descuentos_pedido'
     ];
 
     protected $perPage = 20;
@@ -35,7 +36,7 @@ class Pedido extends Model
      *
      * @var array
      */
-    protected $fillable = ['clientes_id','tienda_id','descripcion','estado','subtotal_pedido'];
+    protected $fillable = ['clientes_id','tienda_id','descripcion','estado','subtotal_pedido','descuentos_pedido'];
 
 
 
