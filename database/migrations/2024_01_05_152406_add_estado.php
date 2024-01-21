@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('pedidos', function (Blueprint $table) {
-            $table->string('estado')->default('EN ESPERA');
+            $table->string('estado_url')->default('EN ESPERA');
         });
     }
 

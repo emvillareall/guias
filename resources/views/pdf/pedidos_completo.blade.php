@@ -90,7 +90,7 @@ margin-right: auto;
 
 .ancho_dir td {
   min-width: 200px;
-  height: 40px;
+  height: 50px;
   border-collapse: separate;
   border-spacing: 5px 2.5px;
 }

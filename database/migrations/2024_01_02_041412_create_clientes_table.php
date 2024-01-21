@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('ciudad_clientes');
             $table->string('direccion_clientes');
             $table->string('email_clientes')->unique()->nullable();
+            $table->string('estado_clientes')->default(1);
             $table->timestamps();
         });
     }

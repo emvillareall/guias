@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('cantidad_producto');
             $table->foreignId('producto_id');
             $table->foreignId('pedido_id');
+            $table->string('estado_dtpedidos')->default(1);
             $table->timestamps();
         });
     }

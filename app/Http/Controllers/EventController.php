@@ -24,7 +24,7 @@ class EventController extends Controller
 
         $url_signed= URL::temporarySignedRoute(
             'event.subscribe', 
-            now()->addMinutes(10),
+            now()->addMinutes(120),
             ['id' => $id] 
         );
         

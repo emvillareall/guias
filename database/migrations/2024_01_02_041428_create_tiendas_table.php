@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('telefono_dueno_tienda');
             $table->string('direccion_dueno_tienda');
             $table->string('email_dueno_tienda')->unique()->nullable();
+            $table->string('estado_tienda')->default(1);
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $telefono_dueno_tienda
  * @property $direccion_dueno_tienda
  * @property $email_dueno_tienda
+ * @property $estado_tienda
  * @property $created_at
  * @property $updated_at
  *
@@ -31,6 +32,7 @@ class Tienda extends Model
 		'cedula_dueno_tienda' => 'required',
 		'telefono_dueno_tienda' => 'required',
 		'direccion_dueno_tienda' => 'required',
+        'estado_tienda',
     ];
 
     protected $perPage = 20;
@@ -40,7 +42,7 @@ class Tienda extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre_tienda','nombres_dueno_tienda','apellidos_dueno_tienda','cedula_dueno_tienda','telefono_dueno_tienda','direccion_dueno_tienda','email_dueno_tienda'];
+    protected $fillable = ['nombre_tienda','nombres_dueno_tienda','apellidos_dueno_tienda','cedula_dueno_tienda','telefono_dueno_tienda','direccion_dueno_tienda','email_dueno_tienda','estado_tienda'];
 
 
 

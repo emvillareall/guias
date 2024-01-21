@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $producto_id
  * @property $pedido_id
  * @property $created_at
+ * @property $estado_dtpedidos
  * @property $updated_at
  *
  * @package App
@@ -24,6 +25,7 @@ class DetallePedido extends Model
 		'cantidad_producto' => 'required',
 		'producto_id' => 'required',
 		'pedido_id' => 'required',
+        'estado_dtpedidos'
     ];
 
     protected $perPage = 20;
@@ -33,7 +35,7 @@ class DetallePedido extends Model
      *
      * @var array
      */
-    protected $fillable = ['cantidad_producto','producto_id','pedido_id'];
+    protected $fillable = ['cantidad_producto','producto_id','estado_dtpedidos','pedido_id'];
 
 
 

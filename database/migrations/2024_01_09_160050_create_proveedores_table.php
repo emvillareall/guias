@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('telefono_proveedor')->nullable();
             $table->string('direccion_proveedor')->nullable();
             $table->string('email_proveedor')->unique()->nullable();
+            $table->string('estado_proveedor')->default(1);
             $table->timestamps();
         });
     }

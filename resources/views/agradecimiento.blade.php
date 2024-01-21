@@ -19,13 +19,7 @@
                         <span class="card-title" style="font-weight: bold; text-align: center;">Datos de Envío:</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('clientes.store', ['id' => $id]) }}"  role="form" enctype="multipart/form-data" class="form-inline">
-                            {{ Form::hidden('id_pedido', $id) }}
-                            @csrf
-
-                            @include('cliente.form')
-
-                        </form>
+                        <h1>Muchas gracias por su compra</h1>
                     </div>
                 </div>
 </div>

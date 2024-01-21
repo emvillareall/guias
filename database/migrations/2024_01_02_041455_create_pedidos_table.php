@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('clientes_id')->default('1');
             $table->foreignId('tienda_id');
+            $table->string('estado_pedidos')->default(1);
             $table->timestamps();
         });
     }

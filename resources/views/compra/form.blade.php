@@ -26,6 +26,16 @@
             {{ Form::text('total_dolares_compra', $compra->total_dolares_compra, ['class' => 'form-control' . ($errors->has('total_dolares_compra') ? ' is-invalid' : ''), 'placeholder' => 'Total Compra']) }}
             {!! $errors->first('total_dolares_compra', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+                <div class="form-group">
+            {{ Form::label('importacion_compra') }}
+            {{ Form::text('importacion_compra', $compra->importacion_compra, ['class' => 'form-control' . ($errors->has('importacion_compra') ? ' is-invalid' : ''), 'placeholder' => 'Importacion Compra']) }}
+            {!! $errors->first('importacion_compra', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+                <div class="form-group">
+            {{ Form::label('total_final_compra') }}
+            {{ Form::text('total_final_compra', $compra->total_final_compra, ['class' => 'form-control' . ($errors->has('total_final_compra') ? ' is-invalid' : ''), 'placeholder' => 'Total final Compra']) }}
+            {!! $errors->first('total_final_compra', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
         <div class="form-group">
             {{ Form::label('proveedor_id') }}
             {{ Form::select('proveedor_id', $proveedor_id, ['class' => 'form-control' . ($errors->has('proveedor_id') ? ' is-invalid' : ''), 'placeholder' => 'Proveedor Id']) }}

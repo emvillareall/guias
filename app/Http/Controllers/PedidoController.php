@@ -23,6 +23,7 @@ class PedidoController extends Controller
     public function index()
     {
         $date = Carbon::now();
+        $clientes= DB::table('clientes')->get();
         $pedidos = DB::table('pedidos')
             ->join('tiendas', 'tiendas.id', '=', 'pedidos.tienda_id')
             ->join('clientes', 'clientes.id', '=', 'pedidos.clientes_id')
@@ -30,7 +31,7 @@ class PedidoController extends Controller
             ->where('pedidos.created_at','like',"%{$date->toDateString()}%")
             ->paginate(30);
             //dd($pedidos);
-        return view('pedido.index', compact('pedidos'))
+        return view('pedido.index', compact('pedidos','clientes'))
             ->with('i', (request()->input('page', 1) - 1) * $pedidos->perPage());
     }
 
@@ -42,10 +43,11 @@ class PedidoController extends Controller
     public function create()
     {
         $pedido = new Pedido();
+        $clientes= DB::table('clientes')->get();
         $tienda_id = Tienda::select(DB::raw("nombre_tienda as nombre_tienda"), DB::raw("id as id"))
         ->pluck('nombre_tienda', 'id');
 
-        return view('pedido.create', compact('pedido','tienda_id'));
+        return view('pedido.create', compact('pedido','tienda_id','clientes'));
     }
 
     /**
@@ -124,12 +126,13 @@ class PedidoController extends Controller
             ->with('success', 'Pedido deleted successfully');
     }
 
-        public function cambiar_de_estado($id)
+
+    public function cambiar_de_estado($id)
     {
 
         $pedido = DB::table('pedidos')
             ->where('id', $id)
-            ->update(['estado' => "ENVIADO"]);
+            ->update(['estado_url' => "ENVIADO"]);
 
         return redirect()->route('pedidos.index')
             ->with('success', 'Link Enviado');

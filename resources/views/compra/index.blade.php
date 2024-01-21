@@ -38,10 +38,12 @@
                                         
 										<th>Codigo Compra</th>
 										<th>Descripcion Compra</th>
-										<th>Envio Compra</th>
-										<th>Recargo Compra</th>
+										<th>Costo Env Compra</th>
+                                        <th>Costo Imp Compra $</th>
 										<th>Total Compra Pesos</th>
                                         <th>Total Compra Dolares</th>
+                                        <th>Total Final Compra</th>
+
 										<th>Proveedor Id</th>
 
                                         <th></th>
@@ -55,9 +57,10 @@
 											<td>{{ $compra->codigo_compra }}</td>
 											<td>{{ $compra->descripcion_compra }}</td>
 											<td>{{ $compra->envio_compra }}</td>
-											<td>{{ $compra->recargo_compra }}</td>
+                                            <td>{{ $compra->importacion_compra }}</td>
 											<td>{{ $compra->total_pesos_compra }}</td>
                                             <td>{{ $compra->total_dolares_compra }}</td>
+                                            <td>{{ $compra->total_final_compra }}</td>
 											<td>{{ $compra->proveedor_id }}</td>
 
                                             <td>

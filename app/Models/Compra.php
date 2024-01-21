@@ -13,8 +13,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property $envio_compra
  * @property $total_pesos_compra
  * @property $total_dolares_compra
+ * @property $importacion_compra
+ * @property $total_final_compra
  * @property $proveedor_id
  * @property $created_at
+ * @property $estado_compra
  * @property $updated_at
  *
  * @package App
@@ -29,7 +32,10 @@ class Compra extends Model
 		'envio_compra' => 'required',
 		'total_pesos_compra',
         'total_dolares_compra',
+        'importacion_compra',
+        'total_final_compra',
 		'proveedor_id' => 'required',
+        'estado_compra'
     ];
 
     protected $perPage = 20;
@@ -39,7 +45,7 @@ class Compra extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo_compra','descripcion_compra','envio_compra','proveedor_id'];
+    protected $fillable = ['codigo_compra','descripcion_compra','envio_compra','importacion_compra','estado_compra','proveedor_id'];
 
 
 

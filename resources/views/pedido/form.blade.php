@@ -12,6 +12,15 @@
             {{ Form::text('descuentos_pedido', $pedido->descuentos_pedido, ['class' => 'form-control' . ($errors->has('descuentos_pedido') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion del producto']) }}
             {!! $errors->first('descuentos_pedido', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+
+        <div class="form-group">
+            {{ Form::label('clientes') }}
+            <select class="js-example-basic-single" name="clientes_id">
+              @foreach($clientes as $cliente)
+              <option value="{{ $cliente->id }}">{{ $cliente->apellidos_clientes }} {{ $cliente->apellidos_clientes }}</option>
+              @endforeach
+          </select>
+      </div>
         
         <div class="form-group">
             {{ Form::label('tienda_id') }}

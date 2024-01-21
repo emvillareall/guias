@@ -21,6 +21,7 @@ class CompraController extends Controller
     public function index()
     {
         $compras = Compra::paginate();
+        
 
         return view('compra.index', compact('compras'))
             ->with('i', (request()->input('page', 1) - 1) * $compras->perPage());
@@ -34,8 +35,8 @@ class CompraController extends Controller
     public function create()
     {
         $compra = new Compra();
-        $proveedor_id = Proveedore::select(DB::raw("tienda_proveedor as tienda_proveedor"),DB::raw("id as id"))
-               ->pluck('tienda_proveedor', 'id');
+        $proveedor_id = Proveedore::select(DB::raw("tienda_proveedor as tienda_proveedor"),DB::raw("id as id"))->pluck('tienda_proveedor', 'id');
+               
 
         return view('compra.create', compact('compra','proveedor_id'));
     }
@@ -78,8 +79,9 @@ class CompraController extends Controller
     public function edit($id)
     {
         $compra = Compra::find($id);
+        $proveedor_id = Proveedore::select(DB::raw("tienda_proveedor as tienda_proveedor"),DB::raw("id as id"))->pluck('tienda_proveedor', 'id');
 
-        return view('compra.edit', compact('compra'));
+        return view('compra.edit', compact('compra','proveedor_id'));
     }
 
     /**

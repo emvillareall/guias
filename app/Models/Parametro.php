@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id
  * @property $nombre_parametro
  * @property $valor_parametro
+ * @property $estado_parametro
  * @property $created_at
  * @property $updated_at
  *
@@ -22,6 +23,7 @@ class Parametro extends Model
     static $rules = [
 		'nombre_parametro' => 'required',
 		'valor_parametro' => 'required',
+        'estado_parametro'
     ];
 
     protected $perPage = 20;
@@ -31,7 +33,7 @@ class Parametro extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre_parametro','valor_parametro'];
+    protected $fillable = ['nombre_parametro','valor_parametro','estado_parametro'];
 
 
 

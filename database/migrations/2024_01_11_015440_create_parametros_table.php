@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_parametro');
             $table->float('valor_parametro', 8 , 5)->default(0);
+            $table->string('estado_parametro')->default(1);
             $table->timestamps();
         });
     }

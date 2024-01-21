@@ -74,12 +74,12 @@
                                             
                                             <td>{{$url_signed}}
                                                 <a class="btn btn-sm btn-primary" href="{{ 
-                                                        route('estado_pedido',$pedido->id) }}" target="_blank"><i class="fa fa-fw fa fa-paper-plane"></i></a>
-                                            <td><label class="" > {{$pedido->estado}} </label></td>
+                                                        route('estado_pedido',$pedido->id) }}" ><i class="fa fa-fw fa fa-paper-plane"></i></a>
+                                            <td><label class="" > {{$pedido->estado_url}} </label></td>
                                             </td>
                                             @else
                                             <td></td>
-                                            <td><label class="" > {{$pedido->estado}} </label></td>
+                                            <td><label class="" > {{$pedido->estado_url}} </label></td>
                                             @endif
                                             @else
                                             <td>                                                <form  method="POST" action="{{ route('event.getLinkSubscribe', $pedido->id)}}"> 

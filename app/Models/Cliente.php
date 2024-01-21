@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $ciudad_clientes
  * @property $direccion_clientes
  * @property $email_clientes
+ * @property $estado_clientes
  * @property $created_at
  * @property $updated_at
  *
@@ -31,6 +32,7 @@ class Cliente extends Model
 		'telefono_clientes' => 'required',
 		'ciudad_clientes' => 'required',
 		'direccion_clientes' => 'required',
+        'estado_clientes',
         'email_clientes' ,
     ];
 
@@ -41,7 +43,7 @@ class Cliente extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombres_clientes','apellidos_clientes','cedula_clientes','telefono_clientes','ciudad_clientes','direccion_clientes','email_clientes'];
+    protected $fillable = ['nombres_clientes','apellidos_clientes','cedula_clientes','telefono_clientes','ciudad_clientes','direccion_clientes','estado_clientes' ,'email_clientes'];
 
 
 

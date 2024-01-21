@@ -56,7 +56,7 @@ class ClienteController extends Controller
             ->where('id', $request->id)
             ->update(['clientes_id' => $cliente_ced->id]);
 
-        return var_dump("Cliente creado satisfactoriamente");
+        return view('agradecimiento');
     }
 
     /**

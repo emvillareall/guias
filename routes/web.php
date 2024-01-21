@@ -41,13 +41,17 @@ Route::resource('parametros',ParametroController::class);
 Route::resource('detalle-pedidos',DetallePedidoController::class);
 
 
+
 Route::get('/pdf_pedidos/{id}', [App\Http\Controllers\PDFController::class, 'getPDF_pedidos'])->name('getPDF_pedidos');
+
 Route::get('/pdf_pedidos_completo/', [App\Http\Controllers\PDFController::class, 'getPDF_pedidos_completo'])->name('getPDF_pedidos_completo');
+
 Route::get('/estado_pedido/{id}', [App\Http\Controllers\PedidoController::class, 'cambiar_de_estado'])->name('estado_pedido');
 
 Route::get('event/suscribirse/{id}',[App\Http\Controllers\EventController::class, 'subscribe'] )
      ->name('event.subscribe');
 
 Route::post('event/link-subscribe/{id}',[App\Http\Controllers\EventController::class,'getLinkSubscribe'] )->name('event.getLinkSubscribe');
+
 
 Auth::routes();

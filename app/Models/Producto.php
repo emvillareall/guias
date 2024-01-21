@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $precio_pesos_producto
  * @property $precio_dolares_producto
  * @property $precio_venta_producto
+ * @property $estado_producto
  * @property $compras_id
  * @property $created_at
  * @property $updated_at
@@ -34,6 +35,7 @@ class Producto extends Model
 		'precio_dolares_producto',
 		'precio_venta_producto',
 		'compras_id' => 'required',
+		'estado_producto'
     ];
 
     protected $perPage = 20;
@@ -43,7 +45,7 @@ class Producto extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo_producto','descripcion_producto','cantidad_compra_producto','stock_venta_producto','precio_pesos_producto','precio_venta_producto','compras_id'];
+    protected $fillable = ['codigo_producto','descripcion_producto','cantidad_compra_producto','stock_venta_producto','precio_pesos_producto','precio_venta_producto','estado_producto','compras_id'];
 
 
 
