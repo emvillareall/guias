@@ -69,24 +69,33 @@ class ProductoController extends Controller
         $subtotal_producto_pesos= $precio_real_pesos * $request->cantidad_compra_producto;
         $subtotal_producto_dolares= $precio_real_dolares * $request->cantidad_compra_producto;
 
-        $precio_real_envio = $compra->envio_compra +($compra->envio_compra*$recargo_paypal->valor_parametro);
-
-        $precio_envio_dolares = $precio_real_envio * $cambio_moneda->valor_parametro;
-
-        $total_pesos= $compra->total_pesos_compra + $subtotal_producto_pesos + $precio_real_envio;
-
-        if($compra->total_dolares_compra=='0')
+        
+        if($compra->total_dolares_compra == '0')
         {
-            $envio_temp=$precio_envio_dolares; 
+            $envio_temp=$compra->importacion_compra; 
+            $precio_real_envio = $compra->envio_compra+($compra->envio_compra*$recargo_paypal->valor_parametro);
+            $precio_envio_dolares = $precio_real_envio * $cambio_moneda->valor_parametro;
         }
         else
         {
+
             $envio_temp=0;
+            $precio_real_envio = 0;
+            $precio_envio_dolares = 0;
         }
-                $total_dolares= $compra->total_dolares_compra + $subtotal_producto_dolares+$envio_temp;
+ 
+
+        $total_pesos= $compra->total_pesos_compra + $subtotal_producto_pesos + $precio_real_envio;
+
+        $total_dolares= $compra->total_dolares_compra + $subtotal_producto_dolares+$precio_envio_dolares;
+
+        $total_final=$compra->total_final_compra+$subtotal_producto_dolares+$precio_envio_dolares+$envio_temp;
+
+        //dd($total_final);
+
         DB::table('compras')
             ->where('id', $request->compras_id)
-            ->update(['total_pesos_compra' => $total_pesos,'total_dolares_compra' => $total_dolares]);
+            ->update(['total_pesos_compra' => $total_pesos,'total_dolares_compra' => $total_dolares,'total_final_compra' => $total_final]);
 
         return redirect()->route('compras.index')
             ->with('success', 'Producto created successfully.');
