@@ -53,5 +53,7 @@ Route::get('event/suscribirse/{id}',[App\Http\Controllers\EventController::class
 
 Route::post('event/link-subscribe/{id}',[App\Http\Controllers\EventController::class,'getLinkSubscribe'] )->name('event.getLinkSubscribe');
 
+Route::get('reportes',[App\Http\Controllers\ReportesController::class,'index'] )->name('reportes');
+Route::get('reportes/show/{id}',[App\Http\Controllers\ReportesController::class,'show'] )->name('show');
 
 Auth::routes();

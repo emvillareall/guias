@@ -19,6 +19,9 @@ return new class extends Migration
             $table->float('total_pesos_compra')->default(0);
             $table->foreignId('proveedor_id');
             $table->string('estado_compra')->default(1);
+            $table->float('total_dolares_compra')->default(0);
+            $table->float('importacion_compra')->default(0);
+            $table->float('total_final_compra')->default(0);
             $table->timestamps();
         });
     }

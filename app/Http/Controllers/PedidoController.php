@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pedido;
 use App\Models\Tienda;
 use App\Models\Cliente;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
@@ -29,6 +30,7 @@ class PedidoController extends Controller
             ->join('clientes', 'clientes.id', '=', 'pedidos.clientes_id')
             ->select('pedidos.*','clientes.nombres_clientes','clientes.apellidos_clientes', 'tiendas.nombre_tienda')
             ->where('pedidos.created_at','like',"%{$date->toDateString()}%")
+            ->where('pedidos.estado_pedidos','1')
             ->paginate(30);
             //dd($pedidos);
         return view('pedido.index', compact('pedidos','clientes'))
@@ -90,9 +92,10 @@ class PedidoController extends Controller
     {
 
         $pedido = Pedido::find($id);
+        $clientes= DB::table('clientes')->where('id',$pedido->clientes_id)->get();
         $tienda_id = Tienda::select(DB::raw("nombre_tienda as nombre_tienda"), DB::raw("id as id"))
         ->pluck('nombre_tienda', 'id');
-        return view('pedido.edit', compact('pedido','tienda_id'));
+        return view('pedido.edit', compact('pedido','tienda_id','clientes'));
     }
 
     /**
@@ -119,8 +122,19 @@ class PedidoController extends Controller
      * @throws \Exception
      */
     public function destroy($id)
-    {
-        $pedido = Pedido::find($id)->delete();
+    {   
+        $detallepedido= DB::table('detalle_pedidos')->where('pedido_id',$id)->get();
+
+        foreach ($detallepedido as $value) {
+            $producto = Producto::find($value->producto_id)->first();
+            DB::table('productos')
+            ->where('id', $value->producto_id)
+            ->update(['stock_venta_producto' => $producto->stock_venta_producto + $value->cantidad_producto]);
+        }
+
+        $pedido = DB::table('pedidos')
+            ->where('id', $id)
+            ->update(['estado_pedidos' => 0]);
 
         return redirect()->route('pedidos.index')
             ->with('success', 'Pedido deleted successfully');

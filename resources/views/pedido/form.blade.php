@@ -17,7 +17,7 @@
             {{ Form::label('clientes') }}
             <select class="js-example-basic-single" name="clientes_id">
               @foreach($clientes as $cliente)
-              <option value="{{ $cliente->id }}">{{ $cliente->apellidos_clientes }} {{ $cliente->apellidos_clientes }}</option>
+              <option value="{{ $cliente->id }}">{{ $cliente->apellidos_clientes }} {{ $cliente->nombres_clientes }}</option>
               @endforeach
           </select>
       </div>

@@ -86,7 +86,7 @@
                                                     @csrf
                                                     <button type="submit" class="btn btn-primary btn-sm">{{ __('URL') }}</button>
                                                 </form></td>
-                                            <td><label class="" > {{$pedido->estado}} </label></td>
+                                            <td><label class="" > {{$pedido->estado_url}} </label></td>
                                             @endisset
 
                                             <td>

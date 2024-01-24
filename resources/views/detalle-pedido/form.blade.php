@@ -11,7 +11,7 @@
             {{ Form::label('productos') }}
             <select class="js-example-basic-single" name="producto_id">
               @foreach($productos as $producto)
-              <option value="{{ $producto->id }}">{{ $producto->descripcion_producto }}</option>
+              <option value="{{ $producto->id }}">{{ $producto->descripcion_producto }} ( cantidad - {{ $producto->stock_venta_producto }} )</option>
               @endforeach
           </select>
       </div>

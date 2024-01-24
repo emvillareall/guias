@@ -46,3 +46,10 @@
         <p>Compras</p>
     </a>
 </li>
+
+<li class="nav-item">
+        <a href="{{ route('reportes') }}" class="nav-link {{ Request::is('Reportes') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Reportes</p>
+    </a>
+</li>
