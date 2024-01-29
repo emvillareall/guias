@@ -27,6 +27,7 @@ class Compra extends Model
 {
     
     static $rules = [
+        'id',
 		'codigo_compra' => 'required',
 		'descripcion_compra' => 'required',
 		'envio_compra' => 'required',

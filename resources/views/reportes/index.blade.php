@@ -31,7 +31,6 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
 
 										<th>Id</th>
 
@@ -39,24 +38,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($reportes as $reporte)
+                                    <?php $total=0; ?>
+                                    @foreach ($pedidos as $pedido)
+                                      @foreach ($pedido as $value)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $reporte->id }}</td>
 
-                                            <td>
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('show',$reporte->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    
-                                            </td>
+                                            <td>{{ $value->pedido_id }}</td>
+
+                                            <td>{{ $value->total_pedido }}</td>
+
+                                            <td>{{ $total=$total+ $value->total }}</td>
+
                                         </tr>
+                                    @endforeach
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                {!! $reportes->links() !!}
+              
             </div>
         </div>
     </div>
