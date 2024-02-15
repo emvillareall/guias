@@ -43,7 +43,8 @@
 										<th>Total Compra Pesos</th>
                                         <th>Total Compra Dolares</th>
                                         <th>Total Final Compra</th>
-
+                                        <th>Total Ventas</th>
+                                        <th>Ganancia x Caja</th>
 										<th>Proveedor Id</th>
 
                                         <th></th>
@@ -61,6 +62,8 @@
 											<td>{{ $compra->total_pesos_compra }}</td>
                                             <td>{{ $compra->total_dolares_compra }}</td>
                                             <td>{{ $compra->total_final_compra }}</td>
+                                            <td><strong>{{ $compra->total_ventas }}</strong></td>
+                                            <td><strong>{{ $compra->total_ventas - $compra->total_final_compra}}</strong></td>
 											<td>{{ $compra->proveedor_id }}</td>
 
                                             <td>

@@ -21,8 +21,16 @@ class CompraController extends Controller
     public function index()
     {
         $compras = Compra::paginate();
-        
 
+        //sacar las ventas realizadas por cada compra 
+        
+        $compras = DB::table('detalle_pedidos')
+            ->join('pedidos', 'pedidos.id', '=', 'detalle_pedidos.pedido_id')
+            ->join('productos', 'productos.id', '=', 'detalle_pedidos.producto_id')
+            ->join('compras', 'compras.id', '=', 'productos.compras_id')
+            ->select(DB::raw('compras.*,SUM(detalle_pedidos.cantidad_producto * productos.precio_venta_producto) as total_ventas'))->groupby('compras.id')->paginate(30);
+
+        //dd($compras);
         return view('compra.index', compact('compras'))
             ->with('i', (request()->input('page', 1) - 1) * $compras->perPage());
     }

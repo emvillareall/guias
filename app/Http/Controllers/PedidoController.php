@@ -136,6 +136,10 @@ class PedidoController extends Controller
             ->where('id', $id)
             ->update(['estado_pedidos' => 0]);
 
+        $detalle_pedido = DB::table('detalle_pedidos')
+            ->where('pedido_id', $id)
+            ->update(['estado_dtpedidos' => 0]);
+
         return redirect()->route('pedidos.index')
             ->with('success', 'Pedido deleted successfully');
     }

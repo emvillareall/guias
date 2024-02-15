@@ -17,22 +17,16 @@ class ReportesController extends Controller
     public function index()
     {
 
-        $reportes = DB::table('detalle_pedidos')
-            ->join('pedidos', 'pedidos.id', '=', 'detalle_pedidos.pedido_id')
-            ->join('productos', 'productos.id', '=', 'detalle_pedidos.producto_id')
-            ->select('detalle_pedidos.pedido_id','pedidos.total_pedido', DB::raw('detalle_pedidos.cantidad_producto * productos.precio_dolares_producto as total'))
-            ->get();
-
         $repo = DB::table('detalle_pedidos')
             ->join('pedidos', 'pedidos.id', '=', 'detalle_pedidos.pedido_id')
             ->join('productos', 'productos.id', '=', 'detalle_pedidos.producto_id')
-            ->select(DB::raw('detalle_pedidos.pedido_id, SUM(detalle_pedidos.cantidad_producto * productos.precio_dolares_producto) as total'))->groupby('detalle_pedidos.pedido_id')->get();
+            ->select(DB::raw('detalle_pedidos.pedido_id,pedidos.descripcion, SUM(detalle_pedidos.cantidad_producto * productos.precio_dolares_producto) as total,pedidos.total_pedido, pedidos.total_pedido-SUM(detalle_pedidos.cantidad_producto * productos.precio_dolares_producto) as ganancia,pedidos.created_at'))->groupby('detalle_pedidos.pedido_id','pedidos.total_pedido')->get();
         
-        $pedidos = $reportes->groupby('pedido_id');
+        //$pedidos = $repo->groupby('pedido_id');
 
-        dd($repo);
+        //dd($repo);
 
-        return view('reportes.index', compact('pedidos'));
+        return view('reportes.index', compact('repo'));
     }
 
     public function show($id)
