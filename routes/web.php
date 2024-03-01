@@ -29,8 +29,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::resource('clientes',ClienteController::class);
 Route::resource('tiendas',TiendaController::class);
 Route::resource('pedidos',PedidoController::class);

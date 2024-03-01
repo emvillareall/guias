@@ -1,9 +1,9 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-white elevation-4" style="background-color: #925AFF">
     <a href="{{ route('home') }}" class="brand-link">
-        <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"
+        <img src="imagenes/logotipo.png"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
+        <span class="brand-text font-weight-bold">{{ config('app.name') }}</span>
     </a>
 
     <div class="sidebar">

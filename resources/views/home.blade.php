@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container-fluid">
-        <h1 class="text-black-50">You are logged in!</h1>
+                            <h1>{{ $chart->options['chart_title'] }}</h1>
+
     </div>
+@endsection
+@section('scripts')
+
 @endsection
