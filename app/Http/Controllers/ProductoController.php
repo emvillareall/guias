@@ -57,12 +57,23 @@ class ProductoController extends Controller
 
         $precio_real_pesos= $request->precio_pesos_producto + ($request->precio_pesos_producto * $recargo_paypal->valor_parametro);
 
-
-        $precio_real_dolares=$precio_real_pesos * $cambio_moneda->valor_parametro ;
-
-                DB::table('productos')
+        if($request->precio_dolares_producto == 0)
+        {
+            DB::table('productos')
             ->where('codigo_producto', $request->codigo_producto)
             ->update(['precio_dolares_producto' => $precio_real_dolares,'precio_pesos_producto'=>$precio_real_pesos]);
+
+            $precio_real_dolares=$precio_real_pesos * $cambio_moneda->valor_parametro ;
+        }
+        else
+        {
+             DB::table('productos')
+            ->where('codigo_producto', $request->codigo_producto)
+            ->update(['precio_dolares_producto' => $request->precio_dolares_producto]);
+
+            $precio_real_dolares=$request->precio_dolares_producto;
+        }
+
 
         $compra = Compra::find($request->compras_id);
 

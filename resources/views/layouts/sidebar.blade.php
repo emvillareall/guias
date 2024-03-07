@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-white elevation-4" style="background-color: #925AFF">
     <a href="{{ route('home') }}" class="brand-link">
-        <img src="imagenes/logotipo.png"
+        <img src="{{ URL::to('/') }}/imagenes/logotipo.png"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-bold">{{ config('app.name') }}</span>

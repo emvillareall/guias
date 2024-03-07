@@ -45,7 +45,7 @@ class Producto extends Model
      *
      * @var array
      */
-    protected $fillable = ['codigo_producto','descripcion_producto','cantidad_compra_producto','stock_venta_producto','precio_pesos_producto','precio_venta_producto','estado_producto','compras_id'];
+    protected $fillable = ['codigo_producto','descripcion_producto','cantidad_compra_producto','stock_venta_producto','precio_pesos_producto','precio_dolares_producto','precio_venta_producto','estado_producto','compras_id'];
 
 
 
